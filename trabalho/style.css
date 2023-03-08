@@ -246,8 +246,9 @@ td.expense {
 .modal {
     background: #F0F2F5;
     padding: 2.4rem;
-    width: 90%;
-    max-width: 500px;
+    
+    position: relative;
+    z-index: 1;
 }
 
 /* Form ====================== */
