@@ -114,9 +114,10 @@ const Utils = {
   },
 
   formatAmount(value) {
-    value = Number(value) * 100;
+    // value = value.replace(/\.?\,?/g, "");
+    // value = Number(value);
 
-    return value;
+    return Math.round(value * 100);
   },
 
   formatCurrency(value) {
