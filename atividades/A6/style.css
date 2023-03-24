@@ -51,3 +51,9 @@ section img {
   margin: 10px 20px 10px 0;
   filter: inherit;
 }
+
+section p {
+  text-align: justify;
+  margin-bottom: 10px;
+  text-indent: 50px;
+}
