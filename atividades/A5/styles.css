@@ -1,0 +1,22 @@
+* {
+  margin: 10px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h2 {
+  margin-bottom: 30px;
+}
+
+textarea {
+  margin: 10px;
+  overflow: hidden;
+  padding: 10px;
+  background-color: lightgray;
+  resize: vertical;
+}
+
+h4 {
+  margin-bottom: -10px;
+  margin-left: 10px;
+}
