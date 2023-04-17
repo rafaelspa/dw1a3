@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&subset=latin-ext"
+      rel="stylesheet"
+    />
+    <!-- CSS Base -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+      href="./static/css/webslides.css"
+    />
+
+    <style>
+      * {
+        list-style: none;
+      }
+    </style>
+
+    <title>SEO</title>
+  </head>
+  <body>
+    <article id="webslides">
+      <section class="bg-gradient-r aligncenter" id="slide">
+        <h1>SEO básico</h1>
+      </section>
+
+      <section>
+        <div class="content-center">
+          <h2>Intro</h2>
+          <p class="text-subtitle">
+            SEO é uma abreviação de Search Engine Optimization, ou Otimização
+            para Mecanismos de Busca.
+          </p>
+          <hr />
+          <p class="text-intro">
+            O Front-end tem grande parte no funcionamento do SEO.
+          </p>
+          <p class="text-intro">
+            Os mecanismos de busca usam a indexação para categorizar e ranquear
+            os dados de sites e serviços que estão na rede. Esse processo de
+            indexação pode ser otimizado com o auxílio do SEO. Quanto mais se
+            usam e melhor se usam as técnicas de SEO, melhor ranqueado o seu
+            site estará. Essas técnicas são empregadas de diversas formas em
+            várias partes do seu site.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="content-center">
+          <h2 style="margin-bottom: 50px">Tag</h2>
+          <p>
+            Entre as técnicas de otimização, a utilização de tags é uma das mais
+            comuns. Ela facilita a localização do seu site pelos mecanismos de
+            busca, tornando-o mais relevante nos resultados de busca.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="content-center">
+          <h2 style="margin-bottom: 50px">Palavras-chave</h2>
+          <p>
+            Outra técnica é o uso de palavras-chave. Para se usar essa técnica,
+            é necessário procurar uma palavra-chave que esteja com relevância de
+            busca pelos usuários do mecanismo de busca. Esse termo pode ser
+            incorporado ao seu site para receber ainda mais relevância nos
+            resultados de busca.
+          </p>
+          <p>
+            Uma fonte de procura para termos é:
+            https://neilpatel.com/br/ubersuggest/
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="content-center">
+          <h2 style="margin-bottom: 50px">Meta Tag</h2>
+          <p>
+            Também temos as Meta Tags. Elas são muito importantes e trazem uma
+            descrição do site.
+          </p>
+          <pre>
+              <xmp>
+<title>Bing</title>
+<meta name="description" content="O Bing o ajuda a transformar informações em ações,
+     tornando mais rápido e fácil passar da pesquisa à ação." />
+</code>
+            </xmp>
+        </div>
+      </section>
+
+    <section>
+        <div class="content-center">
+            <h2 style="margin-bottom: 50px">Canonical Tag</h2>
+            <p>
+              Essa tag é usada para quando uma url tem múltiplas variáveis dentro da sua query string. Para que se evite que as
+              queries sejam contabilizadas individualmente, o uso de uma Meta tag junta todas elas em uma só. Por exemplo:
+            </p>
+            <p>
+              Tags com diferentes parâmetros:
+              <ul>
+                <li>https://site.com.br/home?params=val1</li>
+                <li>https://site.com.br/home?params=val2</li>
+                <li>https://site.com.br/home?params=val3</li>
+              </ul>
+            </p>
+            <p>
+              Terão a seguinte Canonical Tag:
+            </p>
+            <pre style="height: 60px; overflow:hidden; display: flex; align-items: center; justify-content: center;" >
+              <xmp style="margin:0;">
+<link rel=”canonical” href=’https://site.com.br/home” />
+              </xmp>
+            </pre>
+        </div>
+    </section>
+
+    <section>
+      <div class="content-center">
+        <h2 style="margin-bottom: 50px">Headers</h2>
+        <p>
+          As tags de cabeçalho h1, h2, etc, são parte da base do html que todo iniciante deveria aprender o que são. Porém deve-se
+          ter em mente que essas tags precisam ser utilizadas devidamente. Por exemplo, todo site deve ter um h1 somente. Se os
+          outros cabeçalhos forem usados seguindo uma lógica hierárquica do conteúdo, os mecanismos de busca podem achar as
+          informações com mais facilidade.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="content-center">
+        <h2 style="margin-bottom: 50px">Imagens</h2>
+        <p>
+          As imagens comuns, criadas com a tag <code>&ltimg&gt</code> também são um recurso para o SEO. Mas para que isso seja possível, é
+          necessário usar a propriedade “alt” dentro da tag, apesar dessa ser uma propriedade que visa a acessibilidade.
+          Por exemplo:
+        </p>
+
+        <pre style="height: 60px; overflow:hidden; display: flex; align-items: center; justify-content: center;">
+          <xmp style="margin:0;">
+<img src=”caminho-para-imagem.png” alt=”descricao-detalhada-da-imagem” />
+          </xmp>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <div class="content-center">
+        <h2 style="margin-bottom: 50px">Links Internos</h2>
+        <p>
+          Caso o seu site tenha muitas páginas, sempre que possível, é favorável ao SEO que essas páginas contenham links umas
+          para as outras. Os mecanismos de busca mapeiam todas as páginas de um site e, caso elas se comuniquem via as tags
+          <code>&ltimg&gt</code>, aumenta o ranking da sua página. Por exemplo, um link em uma página aleatória que voltaria para a página “Home”
+          do seu site:
+        </p>
+
+        <pre style="height: 60px; overflow:hidden; display: flex; align-items: center; justify-content: center;">
+          <xmp style="margin:0;">
+<a href=”/home.html”>Home</a>
+          </xmp>
+        </pre>
+
+        <p>Obs: A página home é a página que normalmente redireciona para outras páginas do site, por isso ela deve ser usada de
+          forma que tenha todos os links internos possíveis.</p>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="content-center">
+        <h2 style="margin-bottom: 50px">Headers</h2>
+        <p>
+          Os mecanismos de busca são capazes de registrar e comparar os conteúdos de sites. Eles sabem quando um site está
+          copiando informações de outros sites e isso leva a uma redução no ranqueamento do site. Dessa forma, evita-se ao máximo
+          copiar e colar informações de outros sites.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="content-center">
+        <h2 style="margin-bottom: 50px">Ferramentas</h2>
+        <p>Existem ferramentas que auxiliam ou automatizam a implantação do SEO.</p>
+        <p>
+          Para blog wordpress, existe o Yoast SEO. Para o google chrome, o SeoQuake e o MozBar. E, para sites,
+          https://neilpatel.com/br/ubersuggest/, https://moz.com/ e https://ahrefs.com/pt/.
+        </p>
+        <p>Como ganhar dinheiro com SEO:</p>
+        <div class="content-center text-intro" style="width: fit-content;">
+          <ul style="text-align:left;">
+            <li>ganhar dinheiro com sites como blogs;</li>
+            <li>vagas de emprego para SEO;</li>
+            <li>aluguel de sites;</li>
+            <li>vender consultorias;</li>
+            <li>entre outros…</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    </article>
+
+    <script src="../static/js/webslides.js"></script>
+    <script>
+      window.ws = 
+      new WebSlides();
+    </script>
+  </body>
+</html>
