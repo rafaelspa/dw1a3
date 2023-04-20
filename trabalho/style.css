@@ -113,6 +113,9 @@ header {
 #logo {
     color: #fff;
     font-weight: 100;
+    width: 150px;
+    aspect-ratio: 1;
+    border-radius: 50%;
 }
 
 /* Balance ====================== */
