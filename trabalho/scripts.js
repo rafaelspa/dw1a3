@@ -13,11 +13,11 @@ const Modal = {
 
 const Storage = {
   get() {
-    return JSON.parse(localStorage.getItem("dev.finances:transactions")) || [];
+    return JSON.parse(localStorage.getItem("finlog:transactions")) || [];
   },
   set(transactions) {
     localStorage.setItem(
-      "dev.finances:transactions",
+      "finlog:transactions",
       JSON.stringify(transactions)
     );
   },
@@ -82,6 +82,7 @@ const DOM = {
         <td class="description">${transaction.description}</td>
         <td class="${CSSclass}">${amount}</td>
         <td class="date">${transaction.date}</td>
+        <td class="establishment">${transaction.establishment}</td>
         <td>
             <img onclick="Transaction.remove(${index})" src="./assets/minus.svg" alt="Remover Transação" />
         </td>

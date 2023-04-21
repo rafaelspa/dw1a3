@@ -1,0 +1,67 @@
+Modal
+  open()
+  close()
+
+Storage
+  get()
+  set()
+
+Transaction
+  all
+  add()
+  remove(index)
+  incomes()
+  expenses()
+  total()
+
+DOM
+  transactionContainer
+  addTransaction(transaction, index)
+  innerHTMLTransaction(transaction, index)
+  updateBalance()
+  clearTransactions()
+
+Utils
+  formatDate(date)
+  formatAmount(value)
+  formatCurrency(value)
+
+Form
+  description
+  amount
+  date
+  getValues()
+  validateFields()
+  formatValues()
+  clearFields()
+  submit(event)
+
+App
+  init()
+  reload()
+
+App.init() 
+
+
+
+#####
+Lista de implementações:
+[] temas (dark, mudança de cor).
+[] tags.
+[] campo estabelecimentos nas transações.
+[] apagar todas as transações.
+[] conta paga atrasada ou não, valor extra.
+[] gasto recorrente ou não.
+[] ver nos ultimos 7, 15, 30 dias, 2 e 6 meses e 1 ano.
+[] filtro por dias, por tipo, ordem de anotação.
+[] somatório por tag.
+[] clicar e arrastar as transactions para mudar de ordem.
+[] sidebar móvel com apresentação do trabalho e o que foi implementado.
+[] trocar idioma e moeda.
+[] leitura de transação por ocr.
+[] cadastro (talvez precise de banco de dados).
+[] salvar na nuvem.
+[] gerar relatório (receitas por mês, gastos por mês).
+[] criar um objeto transação mais detalhado.
+[] mostrar data.
+[] mostrar valor do dolar.
