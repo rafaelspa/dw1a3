@@ -141,29 +141,32 @@ const Form = {
   description: document.querySelector("input#description"),
   amount: document.querySelector("input#amount"),
   date: document.querySelector("input#date"),
+  establishment: document.querySelector("input#establishment"),
 
   getValues() {
     return {
       description: Form.description.value,
       amount: Form.amount.value,
       date: Form.date.value,
+      establishment: Form.establishment.value,
     };
   },
 
   validateFields() {
-    const { description, amount, date } = Form.getValues();
+    const { description, amount, date, establishment } = Form.getValues();
 
     if (
       description.trim() === "" ||
       amount.trim() === "" ||
-      date.trim() === ""
+      date.trim() === "" ||
+      establishment.trim() === ""
     ) {
       throw new Error("Por favor, preecha todos os campos");
     }
   },
 
   formatValues() {
-    let { description, amount, date } = Form.getValues();
+    let { description, amount, date, establishment } = Form.getValues();
 
     amount = Utils.formatAmount(amount);
 
@@ -173,6 +176,7 @@ const Form = {
       description: description,
       amount,
       date,
+      establishment,
     };
   },
 
@@ -180,6 +184,7 @@ const Form = {
     Form.description.value = "";
     Form.amount.value = "";
     Form.date.value = "";
+    Form.establishment.value = "";
   },
 
   submit(event) {

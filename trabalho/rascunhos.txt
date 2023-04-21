@@ -1,3 +1,5 @@
+## Estrutura do script.js
+
 Modal
   open()
   close()
@@ -44,12 +46,14 @@ App.init()
 
 
 
-#####
-Lista de implementações:
+## Lista de ideias de implementação:
+
+[X] colocar icone de dolar sign.
 [] temas (dark, mudança de cor).
 [] tags.
-[] campo estabelecimentos nas transações.
+[X] campo estabelecimentos nas transações.
 [] apagar todas as transações.
+[] separar em transações ativas e históricas.
 [] conta paga atrasada ou não, valor extra.
 [] gasto recorrente ou não.
 [] ver nos ultimos 7, 15, 30 dias, 2 e 6 meses e 1 ano.
@@ -65,3 +69,6 @@ Lista de implementações:
 [] criar um objeto transação mais detalhado.
 [] mostrar data.
 [] mostrar valor do dolar.
+[] mostrar taxa selic.
+[] colocar ads.
+[] mostrar histórico de estabelecimentos quando estiver escrevendo no modal.
