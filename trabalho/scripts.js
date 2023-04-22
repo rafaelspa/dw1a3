@@ -37,6 +37,12 @@ const Transaction = {
     App.reload();
   },
 
+  removeAll() {
+    this.all = [];
+
+    App.reload();
+  },
+
   incomes() {
     let income = 0;
     Transaction.all.forEach((transaction) => {
@@ -67,6 +73,8 @@ const DOM = {
 
   addTransaction(transaction, index) {
     const tr = document.createElement("tr");
+    tr.className = "draggable";
+    tr.draggable = "true";
     tr.innerHTML = DOM.innerHTMLTransaction(transaction, index);
     tr.dataset.index = index;
 
@@ -196,6 +204,7 @@ const Form = {
       Transaction.add(transaction);
       Form.clearFields();
       Modal.close();
+      addListeners();
     } catch (error) {
       alert(error.message);
     }
@@ -209,6 +218,7 @@ const App = {
     DOM.updateBalance();
 
     Storage.set(Transaction.all);
+    addListeners();
   },
 
   reload() {

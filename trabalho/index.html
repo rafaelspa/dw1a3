@@ -52,10 +52,14 @@
       </section>
       <section id="transaction">
         <h2 class="sr-only">Transações</h2>
-
-        <a href="#" onclick="Modal.open()" class="button new"
-          >+ Nova Transação</a
+        <div id="buttons-container">
+          <a href="#" onclick="Modal.open()" class="button new"
+            >+ Nova Transação</a
+          >
+          <a href="#" onclick="Transaction.removeAll()" id="remove-all"
+          >Remover tudo</a
         >
+        </div>
 
         <table id="data-table">
           <thead>
@@ -67,7 +71,7 @@
               <th></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="data-table-body">
 
           </tbody>
         </table>
@@ -128,8 +132,7 @@
 
     <footer><p>Finlog</p></footer>
 
-    <script src="./scripts.js">
-
-    </script>
+    <script src="./scripts.js"></script>
+    <script src="./draggable-table.js"></script>
   </body>
 </html>
