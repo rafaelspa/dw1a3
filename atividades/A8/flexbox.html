@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Resolução Coding Fantasy</title>
+      <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <input type="checkbox" />
+    <div id="container">
+
+        <h1>Resolução dos exercícios</h1>
+        <a href="https://codingfantasy.com/games/flexboxadventure/play">
+        <h2>codingfantasy - flexbox adventure</h2>
+        </a>
+    
+        <h3>Level 1</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+              justify-content: center;
+          }
+        </textarea>
+    
+        
+        <h3>Level 2</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+              justify-content: flex-end;
+          }
+        </textarea>
+        
+        <h3>Level 3</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+              justify-content: space-between;
+          }
+        </textarea>
+        
+        <h3>Level 4</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+              justify-content: space-around;
+          }
+        </textarea>
+        
+        <h3>Level 5</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+              justify-content: space-evenly;
+          }
+        </textarea>
+        
+        <h3>Level 6</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+              align-items: center;
+          }
+        </textarea>
+        
+        <h3>Level 7</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+              align-items: flex-end;
+          }
+        </textarea>
+        
+        <h3>Level 8</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+          }
+        </textarea>
+        
+        <h3>Level 9</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-end;
+          }
+        </textarea>
+        
+        <h3>Level 10</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+              flex-direction: column;
+          }
+        </textarea>
+        
+        <h3>Level 11</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+              flex-direction: row-reverse;
+          }
+        </textarea>
+        
+        <h3>Level 12</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-end;
+          }
+        </textarea>
+        
+        <h3>Level 13</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+              flex-direction: row-reverse;
+              justify-content: center;
+              align-items: center;
+          }
+        </textarea>
+    
+        <h3>Level 14</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+          }
+          
+          #arthur {
+              order: 2;
+          }
+        </textarea>
+        
+        <h3>Level 15</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+          }
+          
+          #marilyn {
+              align-self: center;
+          }
+        </textarea>
+        
+        <h3>Level 16</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+          }
+          
+          #haymitch {
+              order: 1;
+              align-self: flex-end;
+          }
+        </textarea>
+        
+        <h3>Level 17</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+              flex-direction: column-reverse;
+              align-items: center;
+              justify-content: flex-end;
+          }
+        </textarea>
+        
+        
+        <h3>Level 18</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+              justify-content: center;
+          }
+          
+          #arthur {
+              order: 2;
+              align-self: center;
+          }
+        </textarea>
+        
+        <h3>Level 19</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+              flex-wrap: wrap;
+          }
+        </textarea>
+        
+        <h3>Level 20</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+              flex-wrap: wrap;
+              align-content: center;
+          }
+        </textarea>
+        
+        <h3>Level 21</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+              flex-wrap: wrap;
+              align-content: flex-end;
+              justify-content: center;
+          }
+        </textarea>
+        
+        <h3>Level 22</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+              flex-direction: column-reverse;
+              align-items: flex-end;
+              justify-content: space-around;
+          }
+        </textarea>
+        
+        <h3>Level 23</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+              flex-wrap: wrap-reverse;
+              flex-direction: column-reverse;
+              align-content: center;
+              justify-content: center;
+          }
+        </textarea>
+        
+        <h3>Level 24</h3>
+        <textarea readonly cols="70">
+          #field {
+              display: flex;
+          }
+          
+          #arthur {
+              order: 3;
+              align-self: center;
+          }
+        </textarea>
+    </div>
+    
+    
+    <script>
+      //Auto ajuste do tamanho do text area
+      const tx = document.getElementsByTagName("textarea");
+  
+      for (let i = 0; i < tx.length; i++) {
+        tx[i].setAttribute(
+            "style",
+            "height:" + tx[i].scrollHeight + "px;overflow-y:hidden;"
+        );
+        tx[i].addEventListener("input", OnInput, false);
+      }
+  
+      function OnInput() {
+        this.style.height = 0;
+        this.style.height = this.scrollHeight + "px";
+      }
+    </script>
+  </body>
+
+</html>
