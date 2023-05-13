@@ -73,29 +73,49 @@
             <h3 style="margin: 0 0 15px 0; color: #aaa;">Valores em pixels</h3>
             <div class="input-border">
                 <label for="border_tr">Borda topo direita: </label>
-                <input type="text" name="border_tr">
+                <input id="border_tr" type="text" name="border_tr">
                 <span>px</span>
             </div>
             <div class="input-border">
                 <label for="border_br">Borda baixo direita: </label>
-                <input type="text" name="border_br">
+                <input id="border_br" type="text" name="border_br">
                 <span>px</span>
             </div>
             <div class="input-border">
                 <label for="border_bl">Borda baixo esquerda: </label>
-                <input type="text" name="border_bl">
+                <input id="border_bl" type="text" name="border_bl">
                 <span>px</span>
             </div>
             <div class="input-border">
                 <label for="border_tl">Borda topo esquerda: </label>
-                <input type="text" name="border_tl">
+                <input id="border_tl" type="text" name="border_tl">
                 <span>px</span>
             </div>
-            <button id="mudar" type="submit" value="mudar">Mudar</button>
+            <button id="mudar" type="submit" value="mudar" onclick="toClipboard()">Mudar</button>
         </form>
         <div id="box"><span>Mude o border-radius</span></div>
     </div>
 
+    <script>
+        function toClipboard() {
+            var copyBorderTr = document.getElementById("border_tr");
+            var copyBorderBr = document.getElementById("border_br");
+            var copyBorderBl = document.getElementById("border_bl");
+            var copyBorderTl = document.getElementById("border_tl");
+
+            copyBorderTr.select();
+            copyBorderBr.select();
+            copyBorderBl.select();
+            copyBorderTl.select();
+
+            navigator.clipboard.writeText(  "border-top-right-radius: " + copyBorderTr.value + "px;\n" +
+                                            "border-end-end-radius: " + copyBorderBr.value + "px;\n" +
+                                            "border-end-start-radius: " + copyBorderBl.value + "px;\n" +
+                                            "border-top-left-radius: " + copyBorderTl.value + "px;"
+
+            );
+        }
+    </script>
 </body>
 
 </html>
