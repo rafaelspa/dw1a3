@@ -11,7 +11,6 @@
             display: flex;
             width: 100%;
             height: 100vh;
-            gap: 100px;
             align-items: center;
             justify-content: space-evenly;
         }
@@ -44,7 +43,8 @@
 
         form input {
             padding-left: 5px;
-            width: 25px;
+            width: 70px;
+            text-align: center;
         }
 
         #mudar {
@@ -60,6 +60,34 @@
             margin-top: 10px;
         }
 
+        #copiar {
+            display: flex;
+            width: 200px;
+            height: 100px;
+            align-items: center;
+            background-color: white;
+            color: blue;
+            font-weight: 700;
+            text-transform: uppercase;
+            justify-content: center;
+            margin-top: 10px;
+            border: 1px solid blue;
+        }
+
+        #reset {
+            display: flex;
+            width: 150px;
+            height: 70px;
+            align-items: center;
+            background-color: orange;
+            color: purple;
+            font-weight: 700;
+            text-transform: uppercase;
+            justify-content: center;
+            margin-top: 10px;
+            border-radius: 35px;
+        }
+
         #mudar:hover {
             opacity: 0.75;
         }
@@ -68,35 +96,67 @@
 
 <body>
     <div id="container">
-        <form>
-            <h2 style="margin: 0; padding: 0;">Mude o border radius</h2>
-            <h3 style="margin: 0 0 15px 0; color: #aaa;">Valores em pixels</h3>
+        <form id="form">  
+            <h2 style="margin: 0 0 20px 0; padding: 0;">Mude o border radius</h2>
             <div class="input-border">
                 <label for="border_tr">Borda topo direita: </label>
                 <input id="border_tr" type="text" name="border_tr">
-                <span>px</span>
             </div>
             <div class="input-border">
                 <label for="border_br">Borda baixo direita: </label>
                 <input id="border_br" type="text" name="border_br">
-                <span>px</span>
             </div>
             <div class="input-border">
                 <label for="border_bl">Borda baixo esquerda: </label>
                 <input id="border_bl" type="text" name="border_bl">
-                <span>px</span>
             </div>
             <div class="input-border">
                 <label for="border_tl">Borda topo esquerda: </label>
                 <input id="border_tl" type="text" name="border_tl">
-                <span>px</span>
             </div>
-            <button id="mudar" type="submit" value="mudar" onclick="toClipboard()">Mudar</button>
+            <button id="mudar" type="submit" value="mudar" onclick="uploadValues(event)">Mudar</button>
+            <button id="copiar" type="button" value="copiar" onclick="toClipboard()">Copiar</button>
         </form>
         <div id="box"><span>Mude o border-radius</span></div>
+        <button id="reset" type="submit" value="reset" onclick="reset()">Reset</button>
     </div>
 
     <script>
+        init()
+
+        function init() {
+            setInitialValues();
+        }
+
+        function setInitialValues() {
+            var copyBorderTr = document.getElementById("border_tr");
+            var copyBorderBr = document.getElementById("border_br");
+            var copyBorderBl = document.getElementById("border_bl");
+            var copyBorderTl = document.getElementById("border_tl");
+            document.getElementById("box").style.borderTopRightRadius = '10px';
+            document.getElementById("box").style.borderBottomRightRadius = '10px';
+            document.getElementById("box").style.borderBottomLeftRadius = '10px';
+            document.getElementById("box").style.borderTopLeftRadius = '10px';
+           
+            copyBorderTr.value = document.getElementById('box').style.borderTopRightRadius;
+            copyBorderBr.value = document.getElementById('box').style.borderBottomRightRadius;
+            copyBorderBl.value = document.getElementById("box").style.borderBottomLeftRadius;
+            copyBorderTl.value = document.getElementById('box').style.borderTopLeftRadius;
+        }
+
+        function uploadValues(event) {
+            event = event || window.event;
+            event.preventDefault();
+            var copyBorderTr = document.getElementById("border_tr").value;
+            var copyBorderBr = document.getElementById("border_br").value;
+            var copyBorderBl = document.getElementById("border_bl").value;
+            var copyBorderTl = document.getElementById("border_tl").value;
+            document.getElementById('box').style.borderTopRightRadius = copyBorderTr;
+            document.getElementById('box').style.borderBottomRightRadius = copyBorderBr;
+            document.getElementById('box').style.borderBottomLeftRadius = copyBorderBl;
+            document.getElementById('box').style.borderTopLeftRadius = copyBorderTl;
+        }
+
         function toClipboard() {
             var copyBorderTr = document.getElementById("border_tr");
             var copyBorderBr = document.getElementById("border_br");
@@ -108,12 +168,16 @@
             copyBorderBl.select();
             copyBorderTl.select();
 
-            navigator.clipboard.writeText(  "border-top-right-radius: " + copyBorderTr.value + "px;\n" +
-                                            "border-end-end-radius: " + copyBorderBr.value + "px;\n" +
-                                            "border-end-start-radius: " + copyBorderBl.value + "px;\n" +
-                                            "border-top-left-radius: " + copyBorderTl.value + "px;"
+            navigator.clipboard.writeText(  "border-top-right-radius: " + copyBorderTr.value + ";\n" +
+                                            "border-end-end-radius: " + copyBorderBr.value + ";\n" +
+                                            "border-end-start-radius: " + copyBorderBl.value + ";\n" +
+                                            "border-top-left-radius: " + copyBorderTl.value + ";"
 
             );
+        }
+
+        function reset() {
+             document.getElementById('form').submit();
         }
     </script>
 </body>
