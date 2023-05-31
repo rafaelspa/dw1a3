@@ -30,17 +30,63 @@ var cartaGui = {
   },
 };
 
+var cartaBatman = {
+  nome: "Batman",
+  imagem:
+    "https://images3.alphacoders.com/110/1104546.jpg",
+  atributos: {
+    ataque: 7,
+    defesa: 7,
+    magia: 7,
+  },
+};
+
+var cartaLink = {
+  nome: "Link",
+  imagem:
+    "https://www.freepngimg.com/thumb/the_legend_of_zelda/21552-3-zelda-link.png",
+  atributos: {
+    ataque: 5,
+    defesa: 6,
+    magia: 3,
+  },
+};
+
+var cartaSuper = {
+  nome: "Terry Crews",
+  imagem:
+    "https://media.vanityfair.com/photos/5b92cf1758404f52d391c0f0/master/w_768,c_limit/t-Terry-Crews-Interview.jpg",
+  atributos: {
+    ataque: 11,
+    defesa: 11,
+    magia: 11,
+  },
+};
+
+var pontosMaquina = 0
+var pontosJogador = 0
+
+atualizaPlacar()
+
+function atualizaPlacar() {
+  var divPlacar = document.getElementById('placar')
+
+  var html = "Jogador " + pontosJogador + "/" + pontosMaquina + " Máquina"
+
+  divPlacar.innerHTML = html
+}
+
 var cartaMaquina;
 var cartaJogador;
-var cartas = [cartaGui, cartaRafa, cartaPaulo];
+var cartas = [cartaGui, cartaRafa, cartaPaulo, cartaBatman, cartaLink, cartaSuper];
 
 function sortearCarta() {
-  var numeroCartaMaquina = parseInt(Math.random() * 3);
+  var numeroCartaMaquina = parseInt(Math.random() * cartas.length);
   cartaMaquina = cartas[numeroCartaMaquina];
 
-  var numeroCartaJogador = parseInt(Math.random() * 3);
+  var numeroCartaJogador = parseInt(Math.random() * cartas.length);
   while (numeroCartaJogador == numeroCartaMaquina) {
-    numeroCartaJogador = parseInt(Math.random() * 3);
+    numeroCartaJogador = parseInt(Math.random() * cartas.length);
   }
   cartaJogador = cartas[numeroCartaJogador];
 
@@ -108,16 +154,22 @@ function jogar() {
     cartaMaquina.atributos[atributoSelecionado]
   ) {
     htmlResultado = '<p class="resultado-final">Venceu</p>';
+    pontosJogador++;
   } else if (
     cartaJogador.atributos[atributoSelecionado] <
     cartaMaquina.atributos[atributoSelecionado]
   ) {
     htmlResultado = '<p class="resultado-final">Perdeu</p>';
+    pontosMaquina++;
   } else {
     htmlResultado = '<p class="resultado-final">Empatou</p>';
   }
 
   divResultado.innerHTML = htmlResultado;
+  document.getElementById('btnJogar').disabled = true
+  // document.getElementById('btnProximaRodada').disabled = false
+
+  atualizaPlacar()
   exibirCartaMaquina();
 }
 

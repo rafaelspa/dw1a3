@@ -119,3 +119,10 @@ form {
 .carta-status p {
   margin-bottom: 2rem;
 }
+
+#placar {
+  color: #FFFFFF;
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+}
