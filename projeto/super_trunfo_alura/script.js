@@ -174,9 +174,14 @@ function jogar() {
     htmlResultado = '<p class="resultado-final">Empatou</p>';
   }
 
+  if (cartas.length == 0) {
+    alert("Fim de jogo")
+  } else {
+    document.getElementById('btnProximaRodada').disabled = false
+  }
+
   divResultado.innerHTML = htmlResultado;
   document.getElementById('btnJogar').disabled = true
-  document.getElementById('btnProximaRodada').disabled = false
 
   atualizaPlacar()
   atualizaQuantidadeDeCartas()
@@ -207,4 +212,17 @@ function exibirCartaMaquina() {
   var html = "<div id='opcoes' class='carta-status'>";
 
   divCartaMaquina.innerHTML = moldura + nome + html + opcoesTexto + "</div>";
+}
+
+function proximaRodada() {
+  var divCartas = document.getElementById("cartas")
+
+  divCartas.innerHTML = `<div id="carta-jogador" class="carta"></div> <div id="carta-maquina" class="carta"></div>`
+
+  document.getElementById("btnSortear").disabled = false
+  document.getElementById("btnJogar").disabled = true
+  document.getElementById("btnProximaRodada").disabled = true
+
+  var divResultado = document.getElementById("resultado")
+  divResultado.innerHTML = ""
 }
