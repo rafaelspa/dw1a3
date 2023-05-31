@@ -66,7 +66,18 @@ var cartaSuper = {
 var pontosMaquina = 0
 var pontosJogador = 0
 
+var cartas = [cartaGui, cartaRafa, cartaPaulo, cartaBatman, cartaLink, cartaSuper];
+
 atualizaPlacar()
+atualizaQuantidadeDeCartas()
+
+function atualizaQuantidadeDeCartas() {
+  var divQuantidadeCartas = document.getElementById("quantidade-cartas")
+  var  html = "Quantidade de cartas no jogo: " + cartas.length
+
+
+  divQuantidadeCartas.innerHTML = html
+}
 
 function atualizaPlacar() {
   var divPlacar = document.getElementById('placar')
@@ -78,17 +89,15 @@ function atualizaPlacar() {
 
 var cartaMaquina;
 var cartaJogador;
-var cartas = [cartaGui, cartaRafa, cartaPaulo, cartaBatman, cartaLink, cartaSuper];
 
 function sortearCarta() {
   var numeroCartaMaquina = parseInt(Math.random() * cartas.length);
   cartaMaquina = cartas[numeroCartaMaquina];
+  cartas.splice(numeroCartaMaquina, 1)
 
   var numeroCartaJogador = parseInt(Math.random() * cartas.length);
-  while (numeroCartaJogador == numeroCartaMaquina) {
-    numeroCartaJogador = parseInt(Math.random() * cartas.length);
-  }
   cartaJogador = cartas[numeroCartaJogador];
+  cartas.splice(numeroCartaJogador, 1)
 
   document.getElementById("btnSortear").disabled = true;
   document.getElementById("btnJogar").disabled = false;
@@ -167,9 +176,10 @@ function jogar() {
 
   divResultado.innerHTML = htmlResultado;
   document.getElementById('btnJogar').disabled = true
-  // document.getElementById('btnProximaRodada').disabled = false
+  document.getElementById('btnProximaRodada').disabled = false
 
   atualizaPlacar()
+  atualizaQuantidadeDeCartas()
   exibirCartaMaquina();
 }
 

@@ -122,7 +122,8 @@ form {
 
 #placar {
   color: #FFFFFF;
-  display: flex;
-  width: 100vw;
-  justify-content: center;
+}
+
+#quantidade-cartas {
+  color: #FFFFFF;
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>Super Trunfo Alura</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="container">
         <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-super-trunfo.png" class="page-logo"
@@ -16,15 +18,15 @@
         <form id="form">
             <h2>Escolha o seu atributo</h2>
             <div class="wrapper">
-                <div id="quantidade-cartas"></div>
                 <div id="cartas">
                     <div id="carta-jogador">
                         <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/card-super-trunfo-transparent-ajustado.png"
-                        style=" width: inherit; height: inherit; position: absolute;">
+                            style=" width: inherit; height: inherit; position: absolute;">
                         <h3></h3>
                     </div>
                 </div>
                 <div id="placar"></div>
+                <div id="quantidade-cartas"></div>
                 <div>
                     <div id="carta-maquina" class="carta"><img
                             src="https://www.alura.com.br/assets/img/imersoes/dev-2021/card-super-trunfo-transparent-ajustado.png"
@@ -33,6 +35,7 @@
             </div>
             <button class="button-jogar" type="button" id="btnJogar" onclick="jogar()" disabled="false">Jogar</button>
             <div id="resultado"></div>
+            <button type="button" id="btnProximaRodada" onclick="proximaRodada()" disabled = "true">Proxima rodada</button>
         </form>
     </div>
 
@@ -45,4 +48,5 @@
 
 
 </body>
+
 </html>
