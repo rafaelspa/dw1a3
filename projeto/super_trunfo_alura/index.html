@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Super Trunfo Alura</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 
 <body>
@@ -17,29 +18,74 @@
             <h2>Escolha o seu atributo</h2>
             <div class="wrapper">
                 <div id="cartas">
-                    <div id="carta-jogador">
-                        <h3></h3>
-                    </div>
+                    <div id="carta-jogador"></div>
                 </div>
                 <div id="placar"></div>
                 <div id="quantidade-cartas"></div>
                 <div>
-                    <div id="carta-maquina" class="carta">  </div>
+                    <div id="carta-maquina" class="carta"></div>
                 </div>
             </div>
             <button class="button-jogar" type="button" id="btnJogar" onclick="jogar()" disabled="false">Jogar</button>
             <div id="resultado"></div>
-            <button type="button" id="btnProximaRodada" onclick="proximaRodada()" disabled = "true">Proxima rodada</button>
+            <button type="button" id="btnProximaRodada" onclick="proximaRodada()" disabled="true">Proxima
+                rodada</button>
         </form>
     </div>
 
-    <script src="script.js"></script>
+    <section id="pokemon">
+        <img src="#" alt="pokemon" class="pokemon__image">
 
+        <h1 class="pokemon__data">
+            <span class="pokemon__number"></span> -
+            <span class="pokemon__name"></span>
+        </h1>
 
+        <form class="form">
+            <input type="search" class="input__search" placeholder="Name or Number" required />
+        </form>
 
+        <div class="buttons">
+            <button class="button btn-prev">Prev &lt;</button>
+            <button class="button btn-next">Next &gt;</button>
+        </div>
 
+        <!-- <div id="pokemon-jogador">
 
+        </div> -->
 
+        <div id="pokemon-jogador">
+            <p class="pokemon-subtitle">100 - voltorb</p>
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/100.gif" alt="voltorb">
+            <ul class="pokemon-stats">
+                <li>
+                    <input type="radio" id="hp" name="stat" />
+                    <label for="hp" >hp: 40</label>
+                </li>
+                <li>
+                    <input type="radio" id="attack" name="stat" />
+                    <label for="attack" >attack: 30</label>               
+                </li>
+                <li>
+                    <input type="radio" id="defense" name="stat" />
+                    <label for="defense" >defense: 50</label>
+                </li>
+                <li>                    
+                    <input type="radio" id="special-attack" name="stat" />
+                    <label for="special-attack" >special-attack: 55</label>
+                </li>
+                <li>
+                    <input type="radio" id="special-defense" name="stat" />
+                    <label for="special-defense" >special-defense: 55</label>
+                </li>
+                <li>
+                    <input type="radio" id="speed" name="stat" />
+                    <label for="speed" >speed: 100</label>
+                </li>
+            </ul>
+        </div>
+
+    </section>
 
 </body>
 
