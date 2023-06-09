@@ -1,108 +1,101 @@
 var pontosMaquina = 0
 var pontosJogador = 0
-
-atualizaPlacar()
-atualizaQuantidadeDeCartas()
-
-function atualizaQuantidadeDeCartas() {
-  var divQuantidadeCartas = document.getElementById("quantidade-cartas")
-  var  html = "Quantidade de cartas no jogo: " + cartas.length
-
-
-  divQuantidadeCartas.innerHTML = html
-}
+var rodadasTotais = 0
+var numeroPokemonJogador
+var numeroPokemonMaquina
+var atributosMaquina = {atributos:[],alt:'', src:'', name:''}
+const numeroDePokemonsComSprite = 649 // total de pokemons com gif
 
 function atualizaPlacar() {
-  var divPlacar = document.getElementById('placar')
-
-  var html = "Jogador " + pontosJogador + "/" + pontosMaquina + " Máquina"
-
-  divPlacar.innerHTML = html
+  document.querySelector("#pts__jogador").innerHtml = `${pontosJogador}`
+  document.querySelector("#pts__maquina").innerHtml = `${pontosMaquina}`
 }
 
-function sortearCarta() {
-  var numeroCartaMaquina = parseInt(Math.random() * cartas.length);
-  cartaMaquina = cartas[numeroCartaMaquina];
-  cartas.splice(numeroCartaMaquina, 1)
 
-  var numeroCartaJogador = parseInt(Math.random() * cartas.length);
-  cartaJogador = cartas[numeroCartaJogador];
-  cartas.splice(numeroCartaJogador, 1)
+function sortearPokemons() {
+  // variaveis gerais
+  numeroPokemonJogador = parseInt(Math.random() * numeroDePokemonsComSprite);
+  numeroPokemonMaquina = parseInt(Math.random() * numeroDePokemonsComSprite);
 
   document.getElementById("btnSortear").disabled = true;
   document.getElementById("btnJogar").disabled = false;
 
-  exibirCartaJogador();
+  exibirPokemonJogador(numeroPokemonJogador)
+  fetchPokemonMaquina(numeroPokemonMaquina)
 }
 
-function obtemAtributoSelecionado() {
-  var radioAtributo = document.getElementsByName("atributo");
-  for (var i = 0; i < radioAtributo.length; i++) {
+function obterIndiceDoAtributoSelecionado() {
+  var radioAtributo = document.getElementsByName("stat__jogador");
+  for (let i = 0; i < radioAtributo.length; i++) {
     if (radioAtributo[i].checked) {
-      return radioAtributo[i].value;
+      return i;
     }
   }
 }
 
 function jogar() {
   var divResultado = document.getElementById("resultado");
+  var textoResultado;
+  var atributosJogador = obterAtributosJogador();
 
-  var atributoSelecionado = obtemAtributoSelecionado();
-
+  var indiceAtributo = obterIndiceDoAtributoSelecionado();
+  console.log(`atr - j: ${atributosJogador[indiceAtributo].value} x m: ${atributosMaquina['atributos'][indiceAtributo]}`)
   if (
-    cartaJogador.atributos[atributoSelecionado] >
-    cartaMaquina.atributos[atributoSelecionado]
+    atributosJogador[indiceAtributo].value >
+    atributosMaquina['atributos'][indiceAtributo]
   ) {
-    htmlResultado = '<p class="resultado-final">Venceu</p>';
+    textoResultado = 'Venceu';
     pontosJogador++;
   } else if (
-    cartaJogador.atributos[atributoSelecionado] <
-    cartaMaquina.atributos[atributoSelecionado]
+    atributosJogador[indiceAtributo].value <
+    atributosMaquina['atributos'][indiceAtributo]
   ) {
-    htmlResultado = '<p class="resultado-final">Perdeu</p>';
+    textoResultado = 'Perdeu';
     pontosMaquina++;
   } else {
-    htmlResultado = '<p class="resultado-final">Empatou</p>';
+    textoResultado = 'Empatou';
   }
+  console.log(`pts - j: ${pontosJogador} x m: ${pontosMaquina}`)
+  rodadasTotais = pontosJogador + pontosMaquina
 
-  if (cartas.length == 0) {
-    alert("Fim de jogo")
+  if (rodadasTotais == 7) {
+    alert("Fim de jogo, aperte ok para o resultado final")
     if (pontosJogador > pontosMaquina) {
-      htmlResultado = '<p class="resultado-final">Venceu</p>'
+      textoResultado = 'Venceu'
     } else if (pontosJogador < pontosMaquina) {
-      htmlResultado = '<p class="resultado-final">Perdeu</p>'
+      textoResultado = 'Perdeu'
     } else {
-      htmlResultado = '<p class="resultado-final">Empatou</p>'
+      textoResultado = 'Empatou'
     }
   } else {
     document.getElementById('btnProximaRodada').disabled = false
   }
 
-  divResultado.innerHTML = htmlResultado;
+  divResultado.innerText = textoResultado;
   document.getElementById('btnJogar').disabled = true
 
   atualizaPlacar()
-  atualizaQuantidadeDeCartas()
-  exibirCartaMaquina();
+  exibirPokemonMaquina(atributosMaquina)
 }
 
 function proximaRodada() {
-  var divCartas = document.getElementById("cartas")
-
-  divCartas.innerHTML = `<div id="carta-jogador" class="carta"></div> <div id="carta-maquina" class="carta"></div>`
+  limparPokemonJogador()
+  limparPokemonMaquina()
 
   document.getElementById("btnSortear").disabled = false
   document.getElementById("btnJogar").disabled = true
   document.getElementById("btnProximaRodada").disabled = true
 
-  var divResultado = document.getElementById("resultado")
-  divResultado.innerHTML = ""
+  document.getElementById("resultado").innerHTML = ''
+
+  document.getElementsByName('stat__jogador').forEach(e => {
+    e.checked = false
+  })
 }
 
-// variaveis gerais
-const numeroDePokemonsComSprite = 649 // numero maximo de pokemons com gif
-var numeroPokemonJogador = parseInt(Math.random() * numeroDePokemonsComSprite);
-var numeroPokemonMaquina = parseInt(Math.random() * numeroDePokemonsComSprite);
+function obterAtributosJogador() {
+  return document.getElementsByName("stat__jogador")
+}
 
 // metodo para buscar pokemon na api Pokeapi.co
 const fetchPokemon = async (pokemon) => {
@@ -133,12 +126,17 @@ const exibirPokemonJogador = async (pokemon) => {
     pokemonJogadorImagem.alt = dados.name
     pokemonJogadorImagem.src = dados['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
     pokemonJogadorHpValue.innerHTML = dados['stats'][0]["base_stat"]
+    hp__jogador.value = dados['stats'][0]["base_stat"]
     pokemonJogadorAttackValue.innerHTML = dados['stats'][1]["base_stat"]
+    attack__jogador.value = dados['stats'][1]["base_stat"]
     pokemonJogadorDefenseValue.innerHTML = dados['stats'][2]["base_stat"]
+    defense__jogador.value = dados['stats'][2]["base_stat"]
     pokemonJogadorSpecialAttackValue.innerHTML = dados['stats'][3]["base_stat"]
+    special__attack__jogador.value = dados['stats'][3]["base_stat"]
     pokemonJogadorSpecialDefenseValue.innerHTML = dados['stats'][4]["base_stat"]
+    special__defense__jogador.value = dados['stats'][4]["base_stat"]
     pokemonJogadorSpeedValue.innerHTML = dados['stats'][5]["base_stat"]
-
+    speed__jogador.value = dados['stats'][5]["base_stat"]
   } else {
     alert("Pokemon jogador não encontrado")
   }
@@ -154,25 +152,41 @@ const pokemonMaquinaSpecialAttackValue = document.querySelector("#pokemon__maqui
 const pokemonMaquinaSpecialDefenseValue = document.querySelector("#pokemon__maquina__special__defense__value")
 const pokemonMaquinaSpeedValue = document.querySelector("#pokemon__maquina__speed__value")
 
-
 // metodo para buscar um pokemon para a maquina na api
-const exibirPokemonMaquina = async (pokemon) => {
+const fetchPokemonMaquina = async (pokemon) => {
   const dados = await fetchPokemon(pokemon);
   
   if (dados) {
-    pokemonMaquinaNome.innerHTML = capitaliza(dados['name'])
-    pokemonMaquinaImagem.alt = dados.name
-    pokemonMaquinaImagem.src = dados['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
-    pokemonMaquinaHpValue.innerHTML = dados['stats'][0]["base_stat"]
-    pokemonMaquinaAttackValue.innerHTML = dados['stats'][1]["base_stat"]
-    pokemonMaquinaDefenseValue.innerHTML = dados['stats'][2]["base_stat"]
-    pokemonMaquinaSpecialAttackValue.innerHTML = dados['stats'][3]["base_stat"]
-    pokemonMaquinaSpecialDefenseValue.innerHTML = dados['stats'][4]["base_stat"]
-    pokemonMaquinaSpeedValue.innerHTML = dados['stats'][5]["base_stat"]
-
+    atributosMaquina['name'] = capitaliza(dados['name'])
+    atributosMaquina['alt'] = dados.name
+    atributosMaquina['src'] = dados['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
+    atributosMaquina['atributos'][0] = dados['stats'][0]["base_stat"]
+    atributosMaquina['atributos'][1] = dados['stats'][1]["base_stat"]
+    atributosMaquina['atributos'][2] = dados['stats'][2]["base_stat"]
+    atributosMaquina['atributos'][3] = dados['stats'][3]["base_stat"]
+    atributosMaquina['atributos'][4] = dados['stats'][4]["base_stat"]
+    atributosMaquina['atributos'][5] = dados['stats'][5]["base_stat"]
   } else {
     alert("Pokemon maquina não encontrado")
   }
+}
+
+function exibirPokemonMaquina(objetoAtributos) {
+  pokemonMaquinaNome.innerHTML = objetoAtributos['name']
+  pokemonMaquinaImagem.alt = objetoAtributos['alt']
+  pokemonMaquinaImagem.src = objetoAtributos['src']
+  pokemonMaquinaHpValue.innerHTML = objetoAtributos['atributos'][0]
+  hp__maquina.value = objetoAtributos['atributos'][0]
+  pokemonMaquinaAttackValue.innerHTML = objetoAtributos['atributos'][1]
+  attack__maquina.value = objetoAtributos['atributos'][1]
+  pokemonMaquinaDefenseValue.innerHTML = objetoAtributos['atributos'][2]
+  defense__maquina.value = objetoAtributos['atributos'][2]
+  pokemonMaquinaSpecialAttackValue.innerHTML = objetoAtributos['atributos'][3]
+  special__attack__maquina.value = objetoAtributos['atributos'][3]
+  pokemonMaquinaSpecialDefenseValue.innerHTML = objetoAtributos['atributos'][4]
+  special__defense__maquina.value = objetoAtributos['atributos'][4]
+  pokemonMaquinaSpeedValue.innerHTML = objetoAtributos['atributos'][4]
+  speed__maquina.value = objetoAtributos['atributos'][4]
 }
 
 function capitaliza(nome) {
@@ -181,5 +195,38 @@ function capitaliza(nome) {
   }
 }
 
-// exibirPokemonJogador(numeroPokemonJogador)
-// exibirPokemonMaquina(numeroPokemonMaquina)
+function limparPokemonJogador() {
+  pokemonJogadorNome.innerHTML = 'Pokemon Jogador'
+  pokemonJogadorImagem.alt = 'pokemon jogador'
+  pokemonJogadorImagem.src = './assets/img/pokeball.jpg'
+  pokemonJogadorHpValue.innerHTML = 'XX'
+  hp__jogador.value = ''
+  pokemonJogadorAttackValue.innerHTML = 'XX'
+  attack__jogador.value = ''
+  pokemonJogadorDefenseValue.innerHTML = 'XX'
+  defense__jogador.value = ''
+  pokemonJogadorSpecialAttackValue.innerHTML = 'XX'
+  special__attack__jogador.value = ''
+  pokemonJogadorSpecialDefenseValue.innerHTML = 'XX'
+  special__defense__jogador.value = ''
+  pokemonJogadorSpeedValue.innerHTML = 'XX'
+  speed__jogador.value = 'XX'
+}
+
+function limparPokemonMaquina() {
+  pokemonMaquinaNome.innerHTML = 'Pokemon Máquina'
+  pokemonMaquinaImagem.alt = 'pokemon maquina'
+  pokemonMaquinaImagem.src = './assets/img/pokeball.jpg'
+  pokemonMaquinaHpValue.innerHTML = 'YY'
+  hp__maquina.value = ''
+  pokemonMaquinaAttackValue.innerHTML = 'YY'
+  attack__maquina.value = ''
+  pokemonMaquinaDefenseValue.innerHTML = 'YY'
+  defense__maquina.value = ''
+  pokemonMaquinaSpecialAttackValue.innerHTML = 'YY'
+  special__attack__maquina.value = ''
+  pokemonMaquinaSpecialDefenseValue.innerHTML = 'YY'
+  special__defense__maquina.value = ''
+  pokemonMaquinaSpeedValue.innerHTML = 'YY'
+  speed__maquina.value = 'YY'
+}

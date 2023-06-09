@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Trunfo Alura</title>
+    <title>Super Trunfo Pokemon</title>
+    <!--  Baseado no Super Trunfo da Alura -->
     <link rel="stylesheet" href="./styles.css">
     <script defer src="./script.js"></script>
 </head>
@@ -13,80 +14,83 @@
 <body>  
     <div id="quadro">
         <div id="pokemon__jogador">
-            <p id="pokemon__jogador__nome">Pokemon Jogador</p>
             <img id="pokemon__jogador__imagem" src="./assets/img/pokeball.jpg" alt="pokemon jogador">
+            <p id="pokemon__jogador__nome">Pokemon Jogador</p>
             <ul class="pokemon__jogador__stats">
                 <li>
-                    <input type="radio" id="hp__jogador" name="stat" />
+                    <input type="radio" id="hp__jogador" name="stat__jogador"/>
                     <label id="pokemon__jogador__hp" for="hp__jogador" >hp</label>
                     <label id="pokemon__jogador__hp__value" class="label__value_jogador" for="hp__jogador" >XX</label>
                 </li>
                 <li>
-                    <input type="radio" id="attack__jogador" name="stat" />
+                    <input type="radio" id="attack__jogador" name="stat__jogador" />
                     <label id="pokemon__jogador__attack" for="attack__jogador" >attack</label>               
                     <label id="pokemon__jogador__attack__value" class="label__value_jogador" for="attack__jogador" >XX</label>               
                 </li>
                 <li>
-                    <input type="radio" id="defense__jogador" name="stat" />
+                    <input type="radio" id="defense__jogador" name="stat__jogador" />
                     <label id="pokemon__jogador__defense" for="defense__jogador" >defense</label>
                     <label id="pokemon__jogador__defense__value" class="label__value_jogador" for="defense__jogador" >XX</label>
                 </li>
                 <li>                    
-                    <input type="radio" id="special__attack__jogador" name="stat" />
+                    <input type="radio" id="special__attack__jogador" name="stat__jogador" />
                     <label id="pokemon__jogador__special__attack" for="special__attack__jogador" >special-attack</label>
                     <label id="pokemon__jogador__special__attack__value" class="label__value_jogador" for="special__attack__jogador" >XX</label>
                 </li>
                 <li>
-                    <input type="radio" id="special__defense__jogador" name="stat" />
+                    <input type="radio" id="special__defense__jogador" name="stat__jogador" />
                     <label id="pokemon__jogador__special__defense" for="special__defense__jogador" >special-defense</label>
                     <label id="pokemon__jogador__special__defense__value" class="label__value_jogador" for="special__defense__jogador" >XX</label>
                 </li>
                 <li>
-                    <input type="radio" id="speed__jogador" name="stat" />
+                    <input type="radio" id="speed__jogador" name="stat__jogador" />
                     <label id="pokemon__jogador__speed" for="speed__jogador" >speed</label>
                     <label id="pokemon__jogador__speed__value" class="label__value_jogador" for="speed__jogador" >XX</label>
                 </li>
             </ul>
         </div>
 
-        <div id="menu-comandos">
+        <div id="menu__comandos">
             <div id="resultado"></div>
-            <button onclick="sortearPokemonJogador()" id="btnSortear">Sortear carta</button>
+            <div id="placar">
+                <p><span id="pts__jogador">0</span> X <span id="pts__maquina"></span>0</p>
+            </div>
+            <button onclick="sortearPokemons()" id="btnSortear">Sortear pokemons</button>
             <button class="button-jogar" type="button" id="btnJogar" onclick="jogar()" disabled="false">Jogar</button>
             <button type="button" id="btnProximaRodada" onclick="proximaRodada()" disabled="true">Proxima rodada</button>
         </div>
     
         <div id="pokemon__maquina">
-            <p id="pokemon__maquina__nome">Pokemon Máquina</p>
             <img id="pokemon__maquina__imagem" src="./assets/img/pokeball.jpg" alt="pokemon maquina">
+            <p id="pokemon__maquina__nome">Pokemon Máquina</p>
             <ul class="pokemon__maquina__stats">
                 <li>
-                    <input type="radio" id="hp__maquina" name="stat" />
+                    <input type="radio" id="hp__maquina" name="stat__maquina" />
                     <label id="pokemon__maquina__hp" class="label__maquina" for="hp__maquina" >hp</label>
                     <label id="pokemon__maquina__hp__value" for="hp__maquina" >YY</label>
                 </li>
                 <li>
-                    <input type="radio" id="attack__maquina" name="stat" />
+                    <input type="radio" id="attack__maquina" name="stat__maquina" />
                     <label id="pokemon__maquina__attack" class="label__maquina" for="attack__maquina" >attack</label>               
                     <label id="pokemon__maquina__attack__value" for="attack__maquina" >YY</label>               
                 </li>
                 <li>
-                    <input type="radio" id="defense__maquina" name="stat" />
+                    <input type="radio" id="defense__maquina" name="stat__maquina" />
                     <label id="pokemon__maquina__defense" class="label__maquina" for="defense__maquina" >defense</label>
                     <label id="pokemon__maquina__defense__value" for="defense__maquina" >YY</label>
                 </li>
                 <li>                    
-                    <input type="radio" id="special__attack__maquina" name="stat" />
+                    <input type="radio" id="special__attack__maquina" name="stat__maquina" />
                     <label id="pokemon__maquina__special__attack" class="label__maquina" for="special__attack__maquina" >special-attack</label>
                     <label id="pokemon__maquina__special__attack__value" for="special__attack__maquina" >YY</label>
                 </li>
                 <li>
-                    <input type="radio" id="special__defense__maquina" name="stat" />
+                    <input type="radio" id="special__defense__maquina" name="stat__maquina" />
                     <label id="pokemon__maquina__special__defense" class="label__maquina" for="special__defense__maquina" >special-defense</label>
                     <label id="pokemon__maquina__special__defense__value" for="special__defense__maquina" >YY</label>
                 </li>
                 <li>
-                    <input type="radio" id="speed__maquina" name="stat" />
+                    <input type="radio" id="speed__maquina" name="stat__maquina" />
                     <label id="pokemon__maquina__speed" for="speed__maquina" class="label__maquina">speed</label>
                     <label id="pokemon__maquina__speed__value" for="speed__maquina" >YY</label>
                 </li>
