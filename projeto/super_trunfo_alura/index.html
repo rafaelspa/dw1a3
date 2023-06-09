@@ -10,29 +10,7 @@
     <script defer src="./script.js"></script>
 </head>
 
-<body>
-    <div class="container">
-        <h1 class="page-title">Super Trunfo</h1>
-        <button onclick="sortearCarta()" id="btnSortear">Sortear carta</button>
-        <form id="form">
-            <h2>Escolha o seu atributo</h2>
-            <div class="wrapper">
-                <div id="cartas">
-                    <div id="carta-jogador"></div>
-                </div>
-                <div id="placar"></div>
-                <div id="quantidade-cartas"></div>
-                <div>
-                    <div id="carta-maquina" class="carta"></div>
-                </div>
-            </div>
-            <button class="button-jogar" type="button" id="btnJogar" onclick="jogar()" disabled="false">Jogar</button>
-            <div id="resultado"></div>
-            <button type="button" id="btnProximaRodada" onclick="proximaRodada()" disabled="true">Proxima
-                rodada</button>
-        </form>
-    </div>
-
+<body>  
     <div id="quadro">
         <div id="pokemon__jogador">
             <p id="pokemon__jogador__nome">Pokemon Jogador</p>
@@ -70,11 +48,16 @@
                 </li>
             </ul>
         </div>
+
+        <div id="menu-comandos">
+            <div id="resultado"></div>
+            <button onclick="sortearPokemonJogador()" id="btnSortear">Sortear carta</button>
+            <button class="button-jogar" type="button" id="btnJogar" onclick="jogar()" disabled="false">Jogar</button>
+            <button type="button" id="btnProximaRodada" onclick="proximaRodada()" disabled="true">Proxima rodada</button>
+        </div>
     
         <div id="pokemon__maquina">
-            <!-- <p id="pokemon__maquina__nome">voltorb</p> -->
             <p id="pokemon__maquina__nome">Pokemon Máquina</p>
-            <!-- <img id="pokemon__maquina__imagem" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/100.gif" style="display: block; width: 60px;" alt="voltorb"> -->
             <img id="pokemon__maquina__imagem" src="./assets/img/pokeball.jpg" alt="pokemon maquina">
             <ul class="pokemon__maquina__stats">
                 <li>
