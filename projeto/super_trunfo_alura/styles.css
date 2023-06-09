@@ -143,7 +143,12 @@ form {
 
 #pokemon__jogador > * {
   align-items: center;
-  margin: 10px auto;
+  margin: 30px auto;
+}
+
+#pokemon__jogador__imagem {
+  display: block;
+  height: 60px;
 }
 
 .label__value_jogador {
@@ -216,7 +221,12 @@ ul li:hover {
 
 #pokemon__maquina > * {
   align-items: center;
-  margin: 10px auto;
+  margin: 30px auto;
+}
+
+#pokemon__maquina__imagem {
+  display: block;
+  height: 60px;
 }
 
 .pokemon__maquina__stats {
