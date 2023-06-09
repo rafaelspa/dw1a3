@@ -43,22 +43,27 @@ function jogar() {
     atributosJogador[indiceAtributo].value >
     atributosMaquina['atributos'][indiceAtributo]
   ) {
+    divResultado.style.visibility = "visible"
+    divResultado.classList.add("venceu")
     textoResultado = 'Venceu';
     pontosJogador++;
   } else if (
     atributosJogador[indiceAtributo].value <
     atributosMaquina['atributos'][indiceAtributo]
   ) {
+    divResultado.style.visibility = "visible"
+    divResultado.classList.add("perdeu")
     textoResultado = 'Perdeu';
     pontosMaquina++;
   } else {
+    divResultado.style.visibility = "visible"
     textoResultado = 'Empatou';
   }
   
   rodadasTotais = pontosJogador + pontosMaquina
 
   if (rodadasTotais == 3) {
-    alert("Fim de jogo, aperte ok para o resultado final")
+    alert(`Fim de jogo, você ${textoResultado}`)
     if (pontosJogador > pontosMaquina) {
       textoResultado = 'Venceu'
     } else if (pontosJogador < pontosMaquina) {
@@ -79,6 +84,11 @@ function jogar() {
 function proximaRodada() {
   limparPokemonJogador()
   limparPokemonMaquina()
+  var divResultado = document.getElementById("resultado")
+  divResultado.classList.remove('venceu')
+  divResultado.classList.remove('perdeu')
+  divResultado.style.visibility = "hidden"
+
 
   document.getElementById("btnSortear").disabled = false
   document.getElementById("btnJogar").disabled = true

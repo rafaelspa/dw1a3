@@ -11,8 +11,9 @@
     <script defer src="./script.js"></script>
 </head>
 
-<body>  
+<body>
     <div id="quadro">
+        <div id="resultado"></div>
         <div id="pokemon__jogador">
             <img id="pokemon__jogador__imagem" src="./assets/img/pokeball.jpg" alt="pokemon jogador">
             <p id="pokemon__jogador__nome">Pokemon Jogador</p>
@@ -51,13 +52,12 @@
         </div>
 
         <div id="menu__comandos">
-            <div id="resultado"></div>
             <div id="placar">
                 <p><span id="pts__jogador">0</span> X <span id="pts__maquina">0</span></p>
             </div>
-            <button onclick="sortearPokemons()" id="btnSortear">Sortear pokemons</button>
+            <button onclick="sortearPokemons()" id="btnSortear">Sortear</button>
             <button class="button-jogar" type="button" id="btnJogar" onclick="jogar()" disabled="false">Jogar</button>
-            <button type="button" id="btnProximaRodada" onclick="proximaRodada()" disabled="true">Proxima rodada</button>
+            <button type="button" id="btnProximaRodada" onclick="proximaRodada()" disabled="true">Próxima rodada</button>
         </div>
     
         <div id="pokemon__maquina">
