@@ -7,8 +7,8 @@ var atributosMaquina = {atributos:[],alt:'', src:'', name:''}
 const numeroDePokemonsComSprite = 649 // total de pokemons com gif
 
 function atualizaPlacar() {
-  document.querySelector("#pts__jogador").innerHtml = `${pontosJogador}`
-  document.querySelector("#pts__maquina").innerHtml = `${pontosMaquina}`
+  document.querySelector("#pts__jogador").innerText = pontosJogador
+  document.querySelector("#pts__maquina").innerText = pontosMaquina
 }
 
 
@@ -58,7 +58,7 @@ function jogar() {
   console.log(`pts - j: ${pontosJogador} x m: ${pontosMaquina}`)
   rodadasTotais = pontosJogador + pontosMaquina
 
-  if (rodadasTotais == 7) {
+  if (rodadasTotais == 3) {
     alert("Fim de jogo, aperte ok para o resultado final")
     if (pontosJogador > pontosMaquina) {
       textoResultado = 'Venceu'
