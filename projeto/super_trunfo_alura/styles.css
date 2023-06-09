@@ -146,6 +146,16 @@ form {
   margin: 10px auto;
 }
 
+.label__value_jogador {
+  display: flex !important;
+  justify-content: right;
+}
+
+.label__maquina {
+  display: flex !important;
+  justify-content: right;
+}
+
 .pokemon__jogador__stats {
   justify-self: center;
   display: flex;

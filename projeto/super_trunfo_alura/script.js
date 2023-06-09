@@ -331,12 +331,12 @@ const fetchPokemon = async (pokemon) => {
 }
 
 const exibirPokemonJogador = async (pokemon) => {
+  pokemonJogadorImagem.src = "./assets/pokeball.jpg"
   const dados = await fetchPokemon(pokemon);
 
   if (dados) {
     pokemonJogadorNome.innerHTML = capitaliza(dados['name'])
     pokemonJogadorImagem.alt = dados.name
-    pokemonJogadorImagem.style.display = 'block'
     pokemonJogadorImagem.src = dados['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
     pokemonJogadorHp.innerHTML = `hp: ${dados['stats'][0]["base_stat"]}`
     pokemonJogadorAttack.innerHTML = `attack: ${dados['stats'][1]["base_stat"]}`
@@ -356,7 +356,6 @@ const exibirPokemonMaquina = async (pokemon) => {
   if (dados) {
     pokemonMaquinaNome.innerHTML = capitaliza(dados['name'])
     pokemonMaquinaImagem.alt = dados.name
-    pokemonMaquinaImagem.style.display = 'block'
     pokemonMaquinaImagem.src = dados['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
     pokemonMaquinaHp.innerHTML = `hp: ${dados['stats'][0]["base_stat"]}`
     pokemonMaquinaAttack.innerHTML = `attack: ${dados['stats'][1]["base_stat"]}`
@@ -376,5 +375,5 @@ function capitaliza(nome) {
   }
 }
 
-exibirPokemonJogador(numeroPokemonJogador)
-exibirPokemonMaquina(numeroPokemonMaquina)
+// exibirPokemonJogador(numeroPokemonJogador)
+// exibirPokemonMaquina(numeroPokemonMaquina)

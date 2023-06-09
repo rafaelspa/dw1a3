@@ -53,63 +53,79 @@
 
     <div id="quadro">
         <div id="pokemon__jogador">
-            <p id="pokemon__jogador__nome">voltorb</p>
-            <img id="pokemon__jogador__imagem" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/100.gif" alt="voltorb">
+            <!-- <p id="pokemon__jogador__nome">voltorb</p> -->
+            <p id="pokemon__jogador__nome">Pokemon Jogador</p>
+            <!-- <img id="pokemon__jogador__imagem" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/100.gif" style="display: block;" alt="voltorb"> -->
+            <img id="pokemon__jogador__imagem" src="./assets/img/pokeball.jpg" style="display: block; width: 60px;" alt="pokemon jogador">
             <ul class="pokemon__jogador__stats">
                 <li>
-                    <input type="radio" id="hp" name="stat" />
-                    <label id="pokemon__jogador__hp" for="hp" >hp: 40</label>
+                    <input type="radio" id="hp__jogador" name="stat" />
+                    <label id="pokemon__jogador__hp" for="hp__jogador" >hp</label>
+                    <label id="pokemon__jogador__hp__value" class="label__value_jogador" for="hp__jogador" >XX</label>
                 </li>
                 <li>
-                    <input type="radio" id="attack" name="stat" />
-                    <label id="pokemon__jogador__attack" for="attack" >attack: 30</label>               
+                    <input type="radio" id="attack__jogador" name="stat" />
+                    <label id="pokemon__jogador__attack" for="attack__jogador" >attack</label>               
+                    <label id="pokemon__jogador__attack__value" class="label__value_jogador" for="attack__jogador" >XX</label>               
                 </li>
                 <li>
-                    <input type="radio" id="defense" name="stat" />
-                    <label id="pokemon__jogador__defense" for="defense" >defense: 50</label>
+                    <input type="radio" id="defense__jogador" name="stat" />
+                    <label id="pokemon__jogador__defense" for="defense__jogador" >defense</label>
+                    <label id="pokemon__jogador__defense__value" class="label__value_jogador" for="defense__jogador" >XX</label>
                 </li>
                 <li>                    
-                    <input type="radio" id="special-attack" name="stat" />
-                    <label id="pokemon__jogador__special__attack" for="special-attack" >special-attack: 55</label>
+                    <input type="radio" id="special__attack__jogador" name="stat" />
+                    <label id="pokemon__jogador__special__attack" for="special__attack__jogador" >special-attack</label>
+                    <label id="pokemon__jogador__special__attack__value" class="label__value_jogador" for="special__attack__jogador" >XX</label>
                 </li>
                 <li>
-                    <input type="radio" id="special-defense" name="stat" />
-                    <label id="pokemon__jogador__special__defense" for="special-defense" >special-defense: 55</label>
+                    <input type="radio" id="special__defense__jogador" name="stat" />
+                    <label id="pokemon__jogador__special__defense" for="special__defense__jogador" >special-defense</label>
+                    <label id="pokemon__jogador__special__defense__value" class="label__value_jogador" for="special__defense__jogador" >XX</label>
                 </li>
                 <li>
-                    <input type="radio" id="speed" name="stat" />
-                    <label id="pokemon__jogador__speed" for="speed" >speed: 100</label>
+                    <input type="radio" id="speed__jogador" name="stat" />
+                    <label id="pokemon__jogador__speed" for="speed__jogador" >speed</label>
+                    <label id="pokemon__jogador__speed__value" class="label__value_jogador" for="speed__jogador" >XX</label>
                 </li>
             </ul>
         </div>
     
         <div id="pokemon__maquina">
-            <p id="pokemon__maquina__nome">voltorb</p>
-            <img id="pokemon__maquina__imagem" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/100.gif" alt="voltorb">
+            <!-- <p id="pokemon__maquina__nome">voltorb</p> -->
+            <p id="pokemon__maquina__nome">Pokemon Máquina</p>
+            <!-- <img id="pokemon__maquina__imagem" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/100.gif" style="display: block; width: 60px;" alt="voltorb"> -->
+            <img id="pokemon__maquina__imagem" src="./assets/img/pokeball.jpg" style="display: block; width: 60px;" alt="pokemon maquina">
             <ul class="pokemon__maquina__stats">
                 <li>
-                    <input type="radio" id="hp" name="stat" />
-                    <label id="pokemon__maquina__hp" for="hp" >hp: 40</label>
+                    <input type="radio" id="hp__maquina" name="stat" />
+                    <label id="pokemon__maquina__hp" class="label__maquina" for="hp__maquina" >hp</label>
+                    <label id="pokemon__maquina__hp__value" for="hp__maquina" >YY</label>
                 </li>
                 <li>
-                    <input type="radio" id="attack" name="stat" />
-                    <label id="pokemon__maquina__attack" for="attack" >attack: 30</label>               
+                    <input type="radio" id="attack__maquina" name="stat" />
+                    <label id="pokemon__maquina__attack" class="label__maquina" for="attack__maquina" >attack</label>               
+                    <label id="pokemon__maquina__attack__value" for="attack__maquina" >YY</label>               
                 </li>
                 <li>
-                    <input type="radio" id="defense" name="stat" />
-                    <label id="pokemon__maquina__defense" for="defense" >defense: 50</label>
+                    <input type="radio" id="defense__maquina" name="stat" />
+                    <label id="pokemon__maquina__defense" class="label__maquina" for="defense__maquina" >defense</label>
+                    <label id="pokemon__maquina__defense__value" for="defense__maquina" >YY</label>
                 </li>
                 <li>                    
-                    <input type="radio" id="special-attack" name="stat" />
-                    <label id="pokemon__maquina__special__attack" for="special-attack" >special-attack: 55</label>
+                    <input type="radio" id="special__attack__maquina" name="stat" />
+                    <label id="pokemon__maquina__special__attack" class="label__maquina" for="special__attack__maquina" >special-attack</label>
+                    <label id="pokemon__maquina__special__attack__value" for="special__attack__maquina" >YY</label>
                 </li>
                 <li>
-                    <input type="radio" id="special-defense" name="stat" />
-                    <label id="pokemon__maquina__special__defense" for="special-defense" >special-defense: 55</label>
+                    <input type="radio" id="special__defense__maquina" name="stat" />
+                    <label id="pokemon__maquina__special__defense" class="label__maquina" for="special__defense__maquina" >special-defense</label>
+                    <label id="pokemon__maquina__special__defense__value" for="special__defense__maquina" >YY</label>
                 </li>
                 <li>
-                    <input type="radio" id="speed" name="stat" />
-                    <label id="pokemon__maquina__speed" for="speed" >speed: 100</label>
+                    <input type="radio" id="speed__maquina" name="stat" />
+                    <label id="pokemon__maquina__speed" for="speed__maquina" class="label__maquina">speed</label>
+                    <label id="pokemon__maquina__speed__value" for="speed__maquina" >YY</label>
                 </li>
             </ul>
         </div>
