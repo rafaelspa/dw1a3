@@ -37,9 +37,8 @@ function jogar() {
   var divResultado = document.getElementById("resultado");
   var textoResultado;
   var atributosJogador = obterAtributosJogador();
-
   var indiceAtributo = obterIndiceDoAtributoSelecionado();
-  console.log(`atr - j: ${atributosJogador[indiceAtributo].value} x m: ${atributosMaquina['atributos'][indiceAtributo]}`)
+  
   if (
     atributosJogador[indiceAtributo].value >
     atributosMaquina['atributos'][indiceAtributo]
@@ -55,7 +54,7 @@ function jogar() {
   } else {
     textoResultado = 'Empatou';
   }
-  console.log(`pts - j: ${pontosJogador} x m: ${pontosMaquina}`)
+  
   rodadasTotais = pontosJogador + pontosMaquina
 
   if (rodadasTotais == 3) {
@@ -73,7 +72,6 @@ function jogar() {
 
   divResultado.innerText = textoResultado;
   document.getElementById('btnJogar').disabled = true
-
   atualizaPlacar()
   exibirPokemonMaquina(atributosMaquina)
 }
