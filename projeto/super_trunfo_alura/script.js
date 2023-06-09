@@ -245,7 +245,6 @@ function proximaRodada() {
   divResultado.innerHTML = ""
 }
 
-
 const pokemonName = document.querySelector('.pokemon__name');
 const pokemonNumber = document.querySelector('.pokemon__number');
 const pokemonImage = document.querySelector('.pokemon__image');
@@ -255,19 +254,9 @@ const input = document.querySelector('.input__search');
 const buttonPrev = document.querySelector('.btn-prev');
 const buttonNext = document.querySelector('.btn-next');
 
-const numeroDePokemonsComSprite = 649
-var numeroPokemon = parseInt(Math.random() * numeroDePokemonsComSprite);
-
 let searchPokemon = 1;
 
-const fetchPokemon = async (pokemon) => {
-  const APIResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
 
-  if (APIResponse.status === 200) {
-    const data = await APIResponse.json();
-    return data;
-  }
-}
 
 const renderPokemon = async (pokemon) => {
 
@@ -310,39 +299,82 @@ buttonNext.addEventListener('click', () => {
 // renderPokemon(numeroPokemon);
 
 
-const exibirPokemonJogador = async (pokemon) => {
-  var divPokemonJogador = document.getElementById("pokemon-jogador");
+const pokemonJogadorNome = document.querySelector("#pokemon__jogador__nome")
+const pokemonJogadorImagem = document.querySelector("#pokemon__jogador__imagem")
+const pokemonJogadorHp = document.querySelector("#pokemon__jogador__hp")
+const pokemonJogadorAttack = document.querySelector("#pokemon__jogador__attack")
+const pokemonJogadorDefense = document.querySelector("#pokemon__jogador__defense")
+const pokemonJogadorSpecialAttack = document.querySelector("#pokemon__jogador__special__attack")
+const pokemonJogadorSpecialDefense = document.querySelector("#pokemon__jogador__special__defense")
+const pokemonJogadorSpeed = document.querySelector("#pokemon__jogador__speed")
 
-  const data = await fetchPokemon(pokemon);
+const pokemonMaquinaNome = document.querySelector("#pokemon__maquina__nome")
+const pokemonMaquinaImagem = document.querySelector("#pokemon__maquina__imagem")
+const pokemonMaquinaHp = document.querySelector("#pokemon__maquina__hp")
+const pokemonMaquinaAttack = document.querySelector("#pokemon__maquina__attack")
+const pokemonMaquinaDefense = document.querySelector("#pokemon__maquina__defense")
+const pokemonMaquinaSpecialAttack = document.querySelector("#pokemon__maquina__special__attack")
+const pokemonMaquinaSpecialDefense = document.querySelector("#pokemon__maquina__special__defense")
+const pokemonMaquinaSpeed = document.querySelector("#pokemon__maquina__speed")
 
-  if (data) {
-    divPokemonJogador.style.backgroundImage = `
-        url(${data['sprites']['versions']['generation-v']['black-white']['animated']['front_default']})
-    `;
-    divPokemonJogador.style.backgroundSize = 'contain';
-    divPokemonJogador.style.backgroundRepeat = 'no-repeat'
-  
-    var nome = `<p class="pokemon-subtitle">${numeroPokemon} - ${data.name}</p>`;
-    opcoesTexto = "";
+const numeroDePokemonsComSprite = 649 // numero maximo de pokemons com gif
+var numeroPokemonJogador = parseInt(Math.random() * numeroDePokemonsComSprite);
+var numeroPokemonMaquina = parseInt(Math.random() * numeroDePokemonsComSprite);
 
-    for(let i = 0; i < data['stats'].length; i++) {
-      opcoesTexto +=
-        "<input type='radio' name='stat' value='" +
-        data['stats'][i]['stat']['name'] +
-        "' >" +
-        data['stats'][i]['stat']['name'] +
-        ": " +
-        data['stats'][i]['base_stat'] +
-        "</input>"
-        "<br>";
-    }
+const fetchPokemon = async (pokemon) => {
+  const APIResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
 
-  var html = "<div id='opcoes' class='pokemon-stats'>";
-
-  divPokemonJogador.innerHTML = nome + html + opcoesTexto + "</div>";
-  } else {
-    alert("Pokemon não encontrado")
+  if (APIResponse.status === 200) {
+    const data = await APIResponse.json();
+    return data;
   }
 }
 
-// exibirPokemonJogador(numeroPokemon)
+const exibirPokemonJogador = async (pokemon) => {
+  const dados = await fetchPokemon(pokemon);
+
+  if (dados) {
+    pokemonJogadorNome.innerHTML = capitaliza(dados['name'])
+    pokemonJogadorImagem.alt = dados.name
+    pokemonJogadorImagem.style.display = 'block'
+    pokemonJogadorImagem.src = dados['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
+    pokemonJogadorHp.innerHTML = `hp: ${dados['stats'][0]["base_stat"]}`
+    pokemonJogadorAttack.innerHTML = `attack: ${dados['stats'][1]["base_stat"]}`
+    pokemonJogadorDefense.innerHTML = `defense: ${dados['stats'][2]["base_stat"]}`
+    pokemonJogadorSpecialAttack.innerHTML = `special-attack: ${dados['stats'][3]["base_stat"]}`
+    pokemonJogadorSpecialDefense.innerHTML = `special-defense: ${dados['stats'][4]["base_stat"]}`
+    pokemonJogadorSpeed.innerHTML = `speed: ${dados['stats'][5]["base_stat"]}`
+
+  } else {
+    alert("Pokemon jogador não encontrado")
+  }
+}
+
+const exibirPokemonMaquina = async (pokemon) => {
+  const dados = await fetchPokemon(pokemon);
+
+  if (dados) {
+    pokemonMaquinaNome.innerHTML = capitaliza(dados['name'])
+    pokemonMaquinaImagem.alt = dados.name
+    pokemonMaquinaImagem.style.display = 'block'
+    pokemonMaquinaImagem.src = dados['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
+    pokemonMaquinaHp.innerHTML = `hp: ${dados['stats'][0]["base_stat"]}`
+    pokemonMaquinaAttack.innerHTML = `attack: ${dados['stats'][1]["base_stat"]}`
+    pokemonMaquinaDefense.innerHTML = `defense: ${dados['stats'][2]["base_stat"]}`
+    pokemonMaquinaSpecialAttack.innerHTML = `special-attack: ${dados['stats'][3]["base_stat"]}`
+    pokemonMaquinaSpecialDefense.innerHTML = `special-defense: ${dados['stats'][4]["base_stat"]}`
+    pokemonMaquinaSpeed.innerHTML = `speed: ${dados['stats'][5]["base_stat"]}`
+
+  } else {
+    alert("Pokemon maquina não encontrado")
+  }
+}
+
+function capitaliza(nome) {
+  if (typeof nome == "string") {
+    return nome[0].toUpperCase() + nome.substring(1)
+  }
+}
+
+exibirPokemonJogador(numeroPokemonJogador)
+exibirPokemonMaquina(numeroPokemonMaquina)
